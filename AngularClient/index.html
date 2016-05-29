@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script src="Scripts/angular.js"></script>   
+
+   
+
+    <link href="Content/loading-bar.css" rel="stylesheet" />
+    <script src="Scripts/loading-bar.min.js"></script>
+
+   
+</head>
+<body data-ng-app="myApp">
+    <h1>OAUTH 2.0  .NET & Angularjs 1.5.5</h1> 
+
+    <div data-ng-controller="MyController as mc" ng-cloak>
+        <button ng-click="mc.GetToken()">Get Token</button>
+        <p ng-show="mc.isAuthenticated">Token Bearer:&nbsp;{{mc.Token}}</p>
+        <p ng-show="mc.isAuthenticated">Expires in:&nbsp;{{mc.ExpiresIn}}&nbsp;seconds.</p>
+        <button ng-show="mc.isAuthenticated" ng-click="mc.GetFlowers()">Get Protected Resource</button>
+        <div data-ng-repeat="flower in mc.flowers">
+            <input type="text" ng-model="flower.name">
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
